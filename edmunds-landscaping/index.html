@@ -1067,18 +1067,18 @@
         <div class="interest-options" role="group" aria-labelledby="interestLabel">
           <label class="interest-option selected" for="iWebsite">
             <input type="checkbox" id="iWebsite" name="interest" value="website" checked />
-            <span class="interest-text"><strong>The Website</strong><span class="interest-price">from $395*</span></span>
+            <span class="interest-text"><strong>The Website</strong><span class="interest-price">$395</span></span>
           </label>
           <label class="interest-option" for="iSystem">
             <input type="checkbox" id="iSystem" name="interest" value="system" />
-            <span class="interest-text"><strong>The Business System</strong><span class="interest-price">from $1,995*</span></span>
+            <span class="interest-text"><strong>The Business System</strong><span class="interest-price">from $1,995</span></span>
           </label>
         </div>
         <p class="interest-hint">Tick both to get the bundle deal: an extra 5% off the combined price, rounded down to the nearest $5.</p>
         <div class="bundle-summary" id="bundleSummary" hidden>
           <div class="bundle-row"><span>Combined price ($395 + $1,995)</span><span>$2,390</span></div>
           <div class="bundle-row"><span>Bundle discount (5%)</span><span>-$120</span></div>
-          <div class="bundle-row bundle-total"><span>Bundle total</span><strong>$2,270*</strong></div>
+          <div class="bundle-row bundle-total"><span>Bundle total</span><strong>$2,270</strong></div>
           <p class="bundle-save">You save $120 when you take both together.</p>
         </div>
         <p class="interest-error" id="interestError" hidden>Please tick at least one: the Website, the Business System, or both.</p>
@@ -1320,9 +1320,9 @@
   function fmt(n){ return "$" + n.toLocaleString("en-CA", { minimumFractionDigits: (n % 1 ? 2 : 0), maximumFractionDigits: 2 }); }
   function selectedLabel(){
     var w = webCheck.checked, s = sysCheck.checked;
-    if (w && s) return "The Website + The Business System bundle (bundle total " + fmt(BUNDLE_TOTAL) + "*, save " + fmt(BUNDLE_SAVED) + ")";
-    if (s) return "The Business System (from $1,995*)";
-    if (w) return "The Website (from $395*)";
+    if (w && s) return "The Website + The Business System bundle (bundle total " + fmt(BUNDLE_TOTAL) + ", save " + fmt(BUNDLE_SAVED) + ")";
+    if (s) return "The Business System (from $1,995)";
+    if (w) return "The Website ($395)";
     return "";
   }
   function updateDeposit(){
