@@ -131,10 +131,12 @@
   .price-card .p-btn{margin-top:auto;justify-content:center}
   .offer-note{margin-top:22px;color:var(--p-soft);font-size:15px;max-width:720px}
   .offer-note a{color:var(--p-blue)}
-  .price-row{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:16px 0 4px}
+  .price-row{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:16px 0 4px}
   .price-row .price-now{margin:0}
-  .price-was{font-size:30px;font-weight:600;color:var(--p-soft);text-decoration-thickness:2.5px;text-decoration-color:var(--p-soft)}
+  .price-was{font-size:30px;font-weight:600;color:var(--p-soft);text-decoration-thickness:2.5px;text-decoration-color:var(--p-soft);line-height:1;padding-bottom:6px}
   .price-from{font-size:22px;font-weight:600;color:var(--p-soft)}
+  .price-stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+  .price-from-top{font-size:15px;font-weight:600;color:var(--p-soft);line-height:1;margin-bottom:4px;letter-spacing:.01em}
   .countdown{border:1px solid transparent;border-radius:16px;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;padding:26px 28px;margin:0 0 28px;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 24px 60px rgba(28,124,240,.16)}
   .countdown-copy{max-width:480px}
   .countdown-title{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--p-ink);line-height:1.2;margin:8px 0 6px}
@@ -527,7 +529,7 @@
       <div class="offer-grid">
         <article class="price-card">
           <span class="tier">The Website</span>
-          <div class="price-row"><s class="price-was">$599</s><div class="price-now"><span class="price-from">from</span> $395*</div></div>
+          <div class="price-row"><div class="price-now">$395</div><s class="price-was">$599</s></div>
           <span class="price-per">One-time</span>
           <ul>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything you see in the preview, finished with your real project photos</li>
@@ -542,7 +544,7 @@
         </article>
         <article class="price-card featured">
           <span class="tier">The Business System</span>
-          <div class="price-row"><s class="price-was">$2,999</s><div class="price-now"><span class="price-from">from</span> $1,995*</div></div>
+          <div class="price-row"><div class="price-stack"><span class="price-from-top">from</span><div class="price-now">$1,995</div></div><s class="price-was">$2,999</s></div>
           <span class="price-per">One-time &middot; enquire for details</span>
           <ul>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in the website, plus the tools behind it</li>
@@ -555,7 +557,7 @@
           <button class="p-btn ghost js-mine" type="button" data-interest="system">Enquire About the System</button>
         </article>
       </div>
-      <p class="price-footnote">*Prices are from, and may change based on scope, complexity, and the number of features.</p>
+      <p class="price-footnote">The Business System price may change based on scope, complexity, and the number of features.</p>
       <section class="services-section" aria-labelledby="services-heading">
         <div class="services-head">
           <span class="zone-pill done">Protiva does it &middot; Services for hire</span>
