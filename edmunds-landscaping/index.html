@@ -147,7 +147,7 @@
   .cd-unit small{display:block;margin-top:6px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p-soft)}
   @media (max-width:640px){.cd-unit{min-width:68px;flex:1}.countdown{padding:22px 20px}}
   .price-footnote{margin-top:16px;font-size:13.5px;color:var(--p-soft);max-width:760px;line-height:1.55}
-  .ai-builder{border:1px solid transparent;border-radius:16px;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;padding:34px 30px;margin:0 0 28px;box-shadow:0 24px 60px rgba(28,124,240,.14)}
+  .ai-builder{border:1px solid transparent;border-radius:16px;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;padding:34px 30px;margin:28px 0 28px;box-shadow:0 24px 60px rgba(28,124,240,.14)}
   .ai-builder h3{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;color:var(--p-ink);line-height:1.12;margin:8px 0 12px}
   .ai-builder p{color:var(--p-body);font-size:17px;line-height:1.62;max-width:720px}
   .ai-builder p strong{color:var(--p-ink)}
@@ -503,28 +503,14 @@
         <div class="countdown-copy">
           <span class="kicker">Limited time offer</span>
           <p class="countdown-title">This promo pricing ends December 7, 2026.</p>
-          <p class="countdown-sub" id="countdownStatus">You have 30 days from November 7 to take this pricing. The timer counts down live to the end of December 7, 2026.</p>
+          <p class="countdown-sub" id="countdownStatus">This promo pricing ends December 7, 2026 at 11:59 p.m. Toronto time.</p>
         </div>
         <div class="countdown-grid" aria-hidden="true">
-          <div class="cd-unit"><span id="cd-days">30</span><small>Days</small></div>
-          <div class="cd-unit"><span id="cd-hours">00</span><small>Hours</small></div>
-          <div class="cd-unit"><span id="cd-minutes">00</span><small>Minutes</small></div>
-          <div class="cd-unit"><span id="cd-seconds">00</span><small>Seconds</small></div>
+          <div class="cd-unit"><span id="cd-days">--</span><small>Days</small></div>
+          <div class="cd-unit"><span id="cd-hours">--</span><small>Hours</small></div>
+          <div class="cd-unit"><span id="cd-minutes">--</span><small>Minutes</small></div>
+          <div class="cd-unit"><span id="cd-seconds">--</span><small>Seconds</small></div>
         </div>
-      </div>
-      <div class="ai-builder">
-        <div class="builder-top">
-          <span class="zone-pill self">Your AI builder</span>
-          <span class="kicker">Included with your website</span>
-        </div>
-        <h3>The AI builder: you run it yourself. No code. Just plain words.</h3>
-        <p>Every site comes with an <strong>AI-assisted builder</strong> &mdash; the tool you use yourself. You manage the site in natural language. You type what you want in plain English, and the builder does the work. Update and manage it yourself, easily, at any time. No code. No designer. No waiting on anyone.</p>
-        <div class="ai-examples">
-          <div class="ai-example"><b>You type</b><em>&ldquo;Swap in this new patio photo.&rdquo;</em><br />The photo goes live on the right page.</div>
-          <div class="ai-example"><b>You type</b><em>&ldquo;Add a snow clearing service.&rdquo;</em><br />A new service section is created for you.</div>
-          <div class="ai-example"><b>You type</b><em>&ldquo;Change our phone number.&rdquo;</em><br />It updates across the whole site at once.</div>
-        </div>
-        <p style="margin-top:18px">This is yours to use whenever you like. You stay in control of your own site from day one &mdash; change text, photos, services and hours yourself, without waiting on anyone.</p>
       </div>
       <div class="offer-grid">
         <article class="price-card">
@@ -558,6 +544,20 @@
         </article>
       </div>
       <p class="price-footnote">The Business System price may change based on scope, complexity, and the number of features.</p>
+      <div class="ai-builder">
+        <div class="builder-top">
+          <span class="zone-pill self">Your AI builder</span>
+          <span class="kicker">Included with your website</span>
+        </div>
+        <h3>The AI builder: you run it yourself. No code. Just plain words.</h3>
+        <p>Every site comes with an <strong>AI-assisted builder</strong> &mdash; the tool you use yourself. You manage the site in natural language. You type what you want in plain English, and the builder does the work. Update and manage it yourself, easily, at any time. No code. No designer. No waiting on anyone.</p>
+        <div class="ai-examples">
+          <div class="ai-example"><b>You type</b><em>&ldquo;Swap in this new patio photo.&rdquo;</em><br />The photo goes live on the right page.</div>
+          <div class="ai-example"><b>You type</b><em>&ldquo;Add a snow clearing service.&rdquo;</em><br />A new service section is created for you.</div>
+          <div class="ai-example"><b>You type</b><em>&ldquo;Change our phone number.&rdquo;</em><br />It updates across the whole site at once.</div>
+        </div>
+        <p style="margin-top:18px">This is yours to use whenever you like. You stay in control of your own site from day one &mdash; change text, photos, services and hours yourself, without waiting on anyone.</p>
+      </div>
       <section class="services-section" aria-labelledby="services-heading">
         <div class="services-head">
           <span class="zone-pill done">Protiva does it &middot; Services for hire</span>
@@ -1083,6 +1083,9 @@
     demoView.hidden = false;
     window.scrollTo(0,0);
     document.title = "Edmunds Landscaping: Website Preview by Protiva";
+    if (window.location.hash !== "#demo") {
+      try { history.replaceState(null, "", "#demo"); } catch (e) {}
+    }
   }
   function showSales(){
     demoView.hidden = true;
@@ -1091,9 +1094,13 @@
     chatFab.setAttribute("aria-expanded","false");
     window.scrollTo(0,0);
     document.title = "A New Website for Edmunds Landscaping, Built by Protiva";
+    if (window.location.hash) {
+      try { history.replaceState(null, "", window.location.pathname + window.location.search); } catch (e) {}
+    }
   }
   document.querySelectorAll(".js-explore").forEach(function(el){ el.addEventListener("click", showDemo); });
   document.querySelectorAll(".js-back").forEach(function(el){ el.addEventListener("click", showSales); });
+  if (window.location.hash === "#demo") { showDemo(); }
 
   /* ---------- Reveal on scroll ---------- */
   var revealEls = document.querySelectorAll(".reveal");
@@ -1334,17 +1341,26 @@
   var cdMinutes = document.getElementById("cd-minutes");
   var cdSeconds = document.getElementById("cd-seconds");
   var cdStatus = document.getElementById("countdownStatus");
-  var offerEnd = new Date("2026-12-07T23:59:59-05:00").getTime();
+  /* Fixed offer end: December 7, 2026, 23:59:59 in Toronto.
+     Toronto is on EST (UTC-5) in December, so that moment is
+     December 8, 2026, 04:59:59 UTC. This is a fixed calendar
+     timestamp only: it is never derived from page-load time,
+     a visit start, or a stored start date, so refreshing the
+     page can never reset or restart the countdown. Every tick
+     recomputes the true time remaining from the current time. */
+  var OFFER_END_MS = Date.UTC(2026, 11, 8, 4, 59, 59);
+  var countdownTimer = null;
   function pad2(n){ return (n < 10 ? "0" : "") + n; }
   function updateCountdown(){
     if (!cdDays) return;
-    var diff = offerEnd - Date.now();
+    var diff = OFFER_END_MS - Date.now();
     if (diff <= 0) {
       cdDays.textContent = "0";
       cdHours.textContent = "00";
       cdMinutes.textContent = "00";
       cdSeconds.textContent = "00";
       if (cdStatus) cdStatus.textContent = "This offer ended on December 7, 2026.";
+      if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
       return;
     }
     var totalSeconds = Math.floor(diff / 1000);
@@ -1359,7 +1375,7 @@
     if (cdStatus) cdStatus.textContent = "You have " + days + (days === 1 ? " day" : " days") + " left. This promo pricing ends December 7, 2026.";
   }
   updateCountdown();
-  setInterval(updateCountdown, 1000);
+  countdownTimer = setInterval(updateCountdown, 1000);
 })();
 </script>
 </body>
