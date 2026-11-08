@@ -1157,6 +1157,13 @@
   document.querySelectorAll(".js-explore").forEach(function(el){ el.addEventListener("click", function(){ yieldThen(showDemo); }); });
   document.querySelectorAll(".js-back").forEach(function(el){ el.addEventListener("click", function(){ yieldThen(showSales); }); });
   if (window.location.hash === "#demo") { showDemo(); }
+  window.addEventListener("hashchange", function(){
+    if (window.location.hash === "#demo") {
+      if (demoView.hidden) { showDemo(); }
+    } else {
+      if (!demoView.hidden) { showSales(); }
+    }
+  });
 
   /* ---------- Reveal on scroll ---------- */
   var revealEls = document.querySelectorAll(".reveal");
