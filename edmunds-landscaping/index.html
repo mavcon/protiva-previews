@@ -212,8 +212,26 @@
   .demo-banner-brand{display:flex;align-items:center;gap:9px;margin-right:auto;min-width:0}
   .demo-banner-note{font-size:13px;color:var(--p-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   @media (max-width:760px){.demo-banner-note{display:none}}
-  .demo-banner-bar .p-btn{padding:9px 16px;font-size:14px;border-radius:8px}
-  @media (max-width:480px){.demo-banner-bar .p-btn{padding:9px 12px;font-size:13px}.demo-back{padding:8px 10px;font-size:13px}}
+  .demo-banner-bar .p-btn{padding:9px 16px;font-size:14px;border-radius:8px;flex:none}
+  .demo-back svg{flex:none}
+  @media (max-width:700px){
+    .demo-banner-brand .p-wordmark{display:none}
+    .demo-banner-in{gap:8px;padding:8px 12px}
+    .demo-banner-brand{gap:0;margin-right:auto;flex:none}
+    .demo-banner-brand .logo-chip.sm{padding:4px 2px}
+    .demo-back{flex:none;padding:7px 10px;font-size:13px;gap:5px}
+    .demo-banner-bar .p-btn{padding:8px 12px;font-size:13px}
+  }
+  @media (max-width:480px){
+    .demo-banner-in{gap:7px;padding:8px 10px}
+    .demo-back{padding:7px 9px;font-size:12.5px}
+    .demo-banner-bar .p-btn{padding:8px 10px;font-size:12.5px}
+  }
+  @media (max-width:360px){
+    .demo-banner-in{flex-wrap:wrap}
+    .demo-banner-brand{margin-right:0}
+    .demo-banner-bar .p-btn{margin-left:auto}
+  }
 
   /* ============ EDMUNDS DEMO ============ */
   .edmunds{background:var(--bg);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;overflow-x:clip;position:relative}
@@ -239,7 +257,18 @@
   nav.main a{text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}
   nav.main a:hover{color:#fff}
   @media (max-width:860px){nav.main{display:none}}
-  @media (max-width:560px){.brand-sub{display:none}.brand-name{font-size:22px}}
+  @media (max-width:560px){
+    .brand{gap:10px}
+    .brand-text{gap:1px;height:40px;justify-content:flex-start}
+    .brand-name{font-size:20px;line-height:1}
+    .brand-sub{display:block;font-size:8.5px;line-height:1.15;letter-spacing:.14em}
+    .e-topbar-in{gap:10px}
+  }
+  @media (max-width:380px){
+    .brand{gap:8px}
+    .brand-name{font-size:18px}
+    .brand-sub{font-size:7.8px;letter-spacing:.11em}
+  }
   .btn{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;background:var(--green);color:#fff;text-decoration:none;font-family:"Archivo",sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;padding:15px 28px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
   .btn:hover{background:var(--green-bright);transform:translateY(-2px);box-shadow:0 14px 30px rgba(13,33,23,.25)}
   .btn.flag{background:#e8c87e;color:#1c1607}
