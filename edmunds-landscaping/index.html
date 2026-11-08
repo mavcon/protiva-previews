@@ -56,11 +56,11 @@
 
   /* ============ PROTIVA shared ============ */
   .protiva{font-family:"Inter",system-ui,sans-serif;color:var(--p-ink)}
-  .p-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;background:var(--p-grad);color:var(--p-on-grad);text-decoration:none;border:0;cursor:pointer;font-family:"Inter",sans-serif;font-weight:700;font-size:15px;padding:13px 24px;border-radius:9px;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease}
-  .p-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(28,124,240,.38)}
+  .p-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;background:var(--p-grad);color:var(--p-on-grad);text-decoration:none;border:0;cursor:pointer;font-family:"Inter",sans-serif;font-weight:700;font-size:15px;padding:13px 24px;border-radius:9px;touch-action:manipulation;transition:transform .12s ease-out,opacity .12s ease-out}
+  .p-btn:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(28,124,240,.32)}
   .p-btn.ghost{background:transparent;color:var(--p-ink);border:1.5px solid var(--p-line)}
   .p-btn.ghost:hover{border-color:var(--p-blue);color:var(--p-blue);box-shadow:none}
-  .p-btn.large{padding:17px 34px;font-size:17px;border-radius:11px}
+  .p-btn.large{padding:17px 34px;font-size:17px;border-radius:11px;contain:layout style}
   .logo-chip{display:inline-flex;align-items:center;flex:none;padding:7px 8px}
   .logo-chip img{height:32px;width:auto}
   .logo-chip .logo-on-light{display:none}
@@ -76,12 +76,12 @@
 
   /* ============ SALES VIEW ============ */
   .orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-  .orb{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform}
-  .orb-a{width:480px;height:480px;left:-140px;top:-120px;background:var(--p-blue);opacity:.20}
-  .orb-b{width:420px;height:420px;right:-120px;top:22%;background:var(--p-cyan);opacity:.14}
-  .orb-c{width:380px;height:380px;left:34%;bottom:-180px;background:var(--p-violet);opacity:.12}
+  .orb{position:absolute;border-radius:50%;will-change:transform;contain:strict}
+  .orb-a{width:480px;height:480px;left:-140px;top:-120px;background:radial-gradient(closest-side,var(--p-blue),transparent);opacity:.20}
+  .orb-b{width:420px;height:420px;right:-120px;top:22%;background:radial-gradient(closest-side,var(--p-cyan),transparent);opacity:.14}
+  .orb-c{width:380px;height:380px;left:34%;bottom:-180px;background:radial-gradient(closest-side,var(--p-violet),transparent);opacity:.12}
   #view-sales > *:not(.orbs):not(.sales-header){position:relative;z-index:1}
-  .sales-header{position:sticky;top:0;z-index:60;background:var(--p-header-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--p-line)}
+  .sales-header{position:sticky;top:0;z-index:60;background:var(--p-header-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--p-line)}
   .sales-header-in{display:flex;align-items:center;gap:14px;padding:12px 20px;max-width:1180px;margin:0 auto}
   .sales-logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
   .sales-for{font-size:13.5px;color:var(--p-soft);border:1px solid var(--p-card-line);border-radius:999px;padding:6px 13px;white-space:nowrap}
@@ -101,7 +101,7 @@
   .facts-row svg{color:var(--p-blue);flex:none}
 
   .preview-zone{background:transparent;padding:0 0 64px}
-  .preview-card{border:1px solid transparent;border-radius:16px;overflow:hidden;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;box-shadow:0 34px 80px rgba(0,0,0,.35);cursor:pointer;text-align:left;width:100%;padding:0;font:inherit;color:inherit;display:block}
+  .preview-card{border:1px solid transparent;border-radius:16px;overflow:hidden;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;box-shadow:0 18px 44px rgba(0,0,0,.30);cursor:pointer;text-align:left;width:100%;padding:0;font:inherit;color:inherit;display:block;touch-action:manipulation}
   .preview-bar{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--p-line);background:var(--p-card)}
   .preview-dots{display:flex;gap:6px}.preview-dots i{width:10px;height:10px;border-radius:50%;display:block}
   .preview-dots i:nth-child(1){background:#ff5f57}.preview-dots i:nth-child(2){background:#febc2e}.preview-dots i:nth-child(3){background:#28c840}
@@ -110,7 +110,9 @@
   .preview-shot{display:block}
   .preview-shot img{width:100%;height:min(52vw,480px);object-fit:cover;object-position:center top}
   .preview-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,0) 55%,rgba(5,7,13,.55) 100%)}
-  .preview-cta{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2}
+  .preview-cta{position:absolute;left:50%;bottom:22px;transform:translateX(-50%) translateZ(0);z-index:2;contain:layout style;pointer-events:none}
+  .preview-cta .p-btn{transition:none}
+  .preview-cta .p-btn:hover{transform:none;box-shadow:none}
   .preview-caption{margin-top:14px;font-size:14px;color:var(--p-soft);text-align:center}
 
   .offer{background:transparent;padding:72px 0}
@@ -120,8 +122,8 @@
   .ai-line b{color:var(--p-blue)}
   .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
   @media (max-width:820px){.offer-grid{grid-template-columns:1fr}}
-  .price-card{background:var(--p-glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--p-line);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column}
-  .price-card.featured{border:1px solid transparent;background:linear-gradient(var(--p-glass),var(--p-glass)) padding-box,var(--p-grad-border) border-box;box-shadow:0 24px 60px rgba(28,124,240,.16)}
+  .price-card{background:var(--p-glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--p-line);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column}
+  .price-card.featured{border:1px solid transparent;background:linear-gradient(var(--p-glass),var(--p-glass)) padding-box,var(--p-grad-border) border-box;box-shadow:0 12px 30px rgba(28,124,240,.14)}
   .price-card .tier{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:700;color:var(--p-blue)}
   .price-now{font-size:54px;font-weight:800;line-height:1;margin:14px 0 4px;color:var(--p-ink)}
   .price-per{font-size:17px;font-weight:600;color:var(--p-soft)}
@@ -137,7 +139,7 @@
   .price-from{font-size:22px;font-weight:600;color:var(--p-soft)}
   .price-stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
   .price-from-top{font-size:15px;font-weight:600;color:var(--p-soft);line-height:1;margin-bottom:4px;letter-spacing:.01em}
-  .countdown{border:1px solid transparent;border-radius:16px;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;padding:26px 28px;margin:0 0 28px;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 24px 60px rgba(28,124,240,.16)}
+  .countdown{border:1px solid transparent;border-radius:16px;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;padding:26px 28px;margin:0 0 28px;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 12px 30px rgba(28,124,240,.14)}
   .countdown-copy{max-width:480px}
   .countdown-title{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--p-ink);line-height:1.2;margin:8px 0 6px}
   .countdown-sub{font-size:15px;color:var(--p-soft);line-height:1.55}
@@ -147,7 +149,7 @@
   .cd-unit small{display:block;margin-top:6px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p-soft)}
   @media (max-width:640px){.cd-unit{min-width:68px;flex:1}.countdown{padding:22px 20px}}
   .price-footnote{margin-top:16px;font-size:13.5px;color:var(--p-soft);max-width:760px;line-height:1.55}
-  .ai-builder{border:1px solid transparent;border-radius:16px;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;padding:34px 30px;margin:28px 0 28px;box-shadow:0 24px 60px rgba(28,124,240,.14)}
+  .ai-builder{border:1px solid transparent;border-radius:16px;background:linear-gradient(var(--p-card),var(--p-card)) padding-box,var(--p-grad-border) border-box;padding:34px 30px;margin:28px 0 28px;box-shadow:0 12px 30px rgba(28,124,240,.12)}
   .ai-builder h3{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;color:var(--p-ink);line-height:1.12;margin:8px 0 12px}
   .ai-builder p{color:var(--p-body);font-size:17px;line-height:1.62;max-width:720px}
   .ai-builder p strong{color:var(--p-ink)}
@@ -182,7 +184,7 @@
   .support-card .support-price{font-size:22px;font-weight:800;color:var(--p-ink);margin:10px 0 4px}
 
   .proposal-zone{background:transparent;padding:8px 0 72px}
-  details.proposal{background:var(--p-glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--p-line);border-radius:16px;overflow:hidden}
+  details.proposal{background:var(--p-glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--p-line);border-radius:16px;overflow:hidden}
   details.proposal summary{cursor:pointer;list-style:none;padding:24px 28px;display:flex;align-items:center;gap:14px}
   details.proposal summary::-webkit-details-marker{display:none}
   details.proposal summary h3{font-size:19px;font-weight:700;color:var(--p-ink)}
@@ -202,7 +204,7 @@
   .sales-footer a:hover{color:var(--p-blue)}
 
   /* ============ DEMO PROTIVA BANNER ============ */
-  .demo-banner-bar{position:sticky;top:0;z-index:90;background:var(--p-header-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);font-family:"Inter",system-ui,sans-serif;color:var(--p-ink)}
+  .demo-banner-bar{position:sticky;top:0;z-index:90;background:var(--p-header-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:"Inter",system-ui,sans-serif;color:var(--p-ink)}
   .demo-banner-bar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,var(--p-blue),var(--p-cyan),var(--p-violet),var(--p-blue))}
   .demo-banner-in{display:flex;align-items:center;gap:12px;padding:8px 16px;max-width:1400px;margin:0 auto}
   .demo-back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-weight:700;font-size:14px;color:var(--p-ink);border:1.5px solid var(--p-line);border-radius:8px;padding:8px 14px;white-space:nowrap;background:transparent;cursor:pointer;font-family:inherit}
@@ -378,7 +380,13 @@
   .form-done h3{font-size:24px;margin-bottom:8px}
   .form-done p{color:var(--ink-soft)}
   .edmunds-footer{background:var(--green-deep);color:#aebfa9;padding:34px 0;font-size:14px;border-top:1px solid rgba(255,255,255,.12)}
-  .edmunds-footer .wrap{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+  .edmunds-footer .wrap{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+  .edmunds-footer a{color:#eef3ea;text-decoration:none}
+  .edmunds-footer a:hover{color:var(--flag-bright);text-decoration:underline;text-underline-offset:3px}
+  .footer-meta{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .footer-social{display:inline-flex;align-items:center;gap:7px;font-weight:600}
+  .footer-social svg{flex:none}
+  .contact-line a:hover{text-decoration:underline;text-underline-offset:3px}
 
   /* ============ CHATBOT ============ */
   .chat-fab{position:fixed;right:20px;bottom:20px;z-index:120;width:60px;height:60px;border-radius:50%;background:var(--green);color:#fff;border:2px solid #fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 14px 34px rgba(13,33,23,.4)}
@@ -932,9 +940,13 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <a href="tel:+16472423677">647-242-3677</a>
           </div>
-          <div class="contact-line" style="border-bottom:0">
+          <div class="contact-line">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
             <span>6 Glenholme Ave, Toronto, ON M6H 3A9</span>
+          </div>
+          <div class="contact-line" style="border-bottom:0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <a href="https://www.instagram.com/edmundslandscaping/" target="_blank" rel="noopener" aria-label="Follow Edmunds Landscaping on Instagram (opens in a new tab)">Instagram &middot; @edmundslandscaping</a>
           </div>
         </div>
         <form class="quote reveal d1" id="quoteForm" novalidate>
@@ -990,7 +1002,7 @@
     <footer class="edmunds-footer">
       <div class="wrap">
         <span>Edmunds Landscaping, 6 Glenholme Ave, Toronto, ON M6H 3A9</span>
-        <span>647-242-3677 &middot; @edmundslandscaping &middot; Since 2013</span>
+        <span class="footer-meta"><span>647-242-3677</span><span aria-hidden="true">&middot;</span><a class="footer-social" href="https://www.instagram.com/edmundslandscaping/" target="_blank" rel="noopener" aria-label="Follow Edmunds Landscaping on Instagram (opens in a new tab)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@edmundslandscaping</a><span aria-hidden="true">&middot;</span><span>Since 2013</span></span>
       </div>
     </footer>
   </div><!-- /edmunds -->
@@ -1099,8 +1111,17 @@
       try { history.replaceState(null, "", window.location.pathname + window.location.search); } catch (e) {}
     }
   }
-  document.querySelectorAll(".js-explore").forEach(function(el){ el.addEventListener("click", showDemo); });
-  document.querySelectorAll(".js-back").forEach(function(el){ el.addEventListener("click", showSales); });
+  /* Yield to the browser before the heavy full-view swap: the click
+     feedback paints first, so the interaction itself stays fast (INP),
+     and the view change renders in the following frame instead of
+     blocking the main thread inside the click handler. */
+  function yieldThen(fn){
+    if (typeof requestAnimationFrame === "function") {
+      requestAnimationFrame(function(){ setTimeout(fn, 0); });
+    } else { setTimeout(fn, 0); }
+  }
+  document.querySelectorAll(".js-explore").forEach(function(el){ el.addEventListener("click", function(){ yieldThen(showDemo); }); });
+  document.querySelectorAll(".js-back").forEach(function(el){ el.addEventListener("click", function(){ yieldThen(showSales); }); });
   if (window.location.hash === "#demo") { showDemo(); }
 
   /* ---------- Reveal on scroll ---------- */
@@ -1354,6 +1375,7 @@
   function pad2(n){ return (n < 10 ? "0" : "") + n; }
   function updateCountdown(){
     if (!cdDays) return;
+    if (salesView.hidden) return; /* countdown is off-screen in the demo view: skip the DOM writes and repaints */
     var diff = OFFER_END_MS - Date.now();
     if (diff <= 0) {
       cdDays.textContent = "0";
